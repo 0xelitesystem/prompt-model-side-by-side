@@ -4,7 +4,7 @@ Run the same prompt against multiple Claude models side-by-side. Compare outputs
 
 **Live demo:** https://0xelitesystem.github.io/claude-eval-harness/
 
-## Why
+## Why this exists
 
 Picking the right Claude model for a task is a real decision: Opus is smartest, Haiku is cheapest and fastest, Sonnet is the middle. Most people pick one and stick with it without testing whether they could downshift to a cheaper tier with no quality loss.
 
@@ -12,7 +12,9 @@ This tool removes the friction. Paste a prompt, pick 2-4 models, click Run. See 
 
 For prompt iteration, this is also useful: try a prompt variation against the same models and watch how output quality and length shift.
 
-## Use it
+It is one HTML file with no tracking and no backend of its own: your key talks straight to Anthropic from your browser. MIT licensed.
+
+## Use
 
 Open `index.html` in any modern browser. Or visit the hosted version at `https://0xelitesystem.github.io/claude-eval-harness/` once GitHub Pages is enabled.
 
@@ -25,6 +27,17 @@ Open `index.html` in any modern browser. Or visit the hosted version at `https:/
 5. Click Run all selected. Requests fire in parallel; cells update as each one returns.
 6. Below the grid, an aggregate row shows total cost, fastest model, and cheapest model.
 7. Export JSON saves the entire session for later comparison or sharing.
+
+## Privacy
+
+This tool does make network calls, and only to one place: `https://api.anthropic.com/v1/messages`, directly from your browser, using the API key you paste.
+
+- When you submit your key, the page sends one validation request: a 1-token call to `claude-haiku-4-5` with the message "hi".
+- When you click Run, it sends your prompt, your optional system prompt, the max-tokens value, and the model id to that endpoint, once per selected model.
+- Anthropic's handling of those requests is governed by your Anthropic account terms, not by this page.
+- The key is held in a JavaScript variable for the tab only. It is never written to localStorage, sessionStorage, cookies, or any URL. Nothing else is stored either.
+- Export JSON creates a file on your own machine; nothing is uploaded.
+- No analytics, no third-party scripts, no other hosts.
 
 ## Pricing accuracy
 
@@ -80,6 +93,19 @@ That's it. Free hosting, your domain, BYOK so users pay their own API costs.
 ## More
 
 Part of a catalog of single-file browser tools and plain-language references, all MIT licensed and dependency-free: [0xelitesystem.github.io](https://0xelitesystem.github.io/). Built by [elitesystem.ai](https://elitesystem.ai).
+
+## Run locally
+
+```
+git clone https://github.com/0xelitesystem/claude-eval-harness
+cd claude-eval-harness
+```
+
+Open `index.html` in a browser, or serve the folder with `python -m http.server 8000` and visit http://localhost:8000. You still need your own Anthropic API key and a network connection to reach the API.
+
+## Build
+
+No build step. The whole tool is one `index.html` file with inline CSS and JavaScript.
 
 ## License
 
