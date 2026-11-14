@@ -1,8 +1,10 @@
-# claude-eval-harness
+# prompt-model-side-by-side
+
+Formerly claude-eval-harness. The old repository address redirects here. The old live page address forwards to the new one.
 
 Run the same prompt against multiple Claude models side-by-side. Compare outputs, latency, and cost. BYOK. Single HTML file.
 
-**Live demo:** https://0xelitesystem.github.io/claude-eval-harness/
+**Live demo:** https://0xelitesystem.github.io/prompt-model-side-by-side/
 
 ## Why this exists
 
@@ -16,7 +18,7 @@ It is one HTML file with no tracking and no backend of its own: your key talks s
 
 ## Use
 
-Open `index.html` in any modern browser. Or visit the hosted version at `https://0xelitesystem.github.io/claude-eval-harness/` once GitHub Pages is enabled.
+Open `index.html` in any modern browser. Or visit the hosted version at `https://0xelitesystem.github.io/prompt-model-side-by-side/` once GitHub Pages is enabled.
 
 ### Workflow
 
@@ -97,8 +99,8 @@ Part of a catalog of single-file browser tools and plain-language references, al
 ## Run locally
 
 ```
-git clone https://github.com/0xelitesystem/claude-eval-harness
-cd claude-eval-harness
+git clone https://github.com/0xelitesystem/prompt-model-side-by-side
+cd prompt-model-side-by-side
 ```
 
 Open `index.html` in a browser, or serve the folder with `python -m http.server 8000` and visit http://localhost:8000. You still need your own Anthropic API key and a network connection to reach the API.
